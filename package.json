@@ -1,0 +1,21 @@
+{
+  "name": "abrupt",
+  "version": "1.5.13",
+  "description": "(Random - Strings, Numbers, Boolean, Float, Objects, Arrays) (Crypto - Base64, Md5, Sha256, Morse, Rot13)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "random",
+    "crypto",
+    "base64",
+    "hash",
+    "morse",
+    "rot",
+    "utility",
+    "util"
+  ],
+  "author": "1XC",
+  "license": "MIT"
+}
