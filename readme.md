@@ -37,7 +37,7 @@ rand.object({
 
 Crypto
 ```js
-const { crypto: { base64, md5, sha256, morse, rot } } = require("abrupt")
+const { crypto: { base64, md5, sha256, AES, morse, rot } } = require("abrupt")
 
 // Base64
 const base64_encoded = base64.encode("Hello World!")
@@ -50,6 +50,28 @@ md5("Hello World!") // ed076287532e86365e841e92bfc50d8c
 md5("Hello World!", "base64") // 7Qdih1MuhjZehB6Sv8UNjA==
 sha256("Hello World!") // 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069
 sha256("Hello World!", "base64") // f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk=
+
+
+// AES 256 CBC:
+
+// AES: Least Intrusive 
+const data = AES.encode("Hello World!", "salt")
+const [ encoded ] = data // JjvrSbdBD0uCWJz7m7uuMw==
+const decoded = AES.decode(...data)
+decoded // Hello World!
+
+// AES: Base64 (default)
+const [ AES_base64_encoded, key, iv ] = AES.encode("Hello World!", "salt")
+AES_base64_encoded // Orfjd40TDTQMGnbqTgZa2g==
+const AES_base64_decoded = AES.decode(AES_base64_encoded, key, iv)
+AES_base64_decoded // Hello World!
+
+// AES: Hex
+const [ AES_hex_encoded, key, iv, encoding ] = AES.encode("Hello World!", "salt", "hex")
+AES_hex_encoded // f9915f277c820293a8935b1605df37ec
+const AES_hex_decoded = AES.decode(AES_hex_encoded, key, iv, encoding)
+AES_hex_decoded // Hello World!
+
 
 // Morse
 const morse_encoded = morse.encode("Hello World!")
