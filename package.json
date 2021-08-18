@@ -1,6 +1,6 @@
 {
   "name": "abrupt",
-  "version": "1.6.16",
+  "version": "1.7.16",
   "description": "(Random - Strings, Numbers, Booleans, Floats, Objects, Arrays) (Crypto - Base64, Md5, Sha256, Sha512, Morse, Rot13)",
   "main": "index.js",
   "scripts": {
