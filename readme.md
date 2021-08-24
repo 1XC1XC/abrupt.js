@@ -1,6 +1,23 @@
+Require
+```js
+// The separate methods of initializing are either by folder or the index of objects. 
+
+// Library
+const { crypto } = require("abrupt") // Object
+const crypto = require("abrupt/crypto") // Folder
+
+// Sub-Library
+const { crypto: { base64 } } = require("abrupt") // Object
+const base64 = require("abrupt/crypto/base64") // Folder
+
+// Specific Function
+const { string: { reverse } } = require("abrupt") // Object
+const reverse = require("abrupt/string/reverse") // Folder
+```
+
 Random
 ```js
-const { rand } = require("abrupt") 
+const rand = require("abrupt/rand") 
 
 // Number:
 rand.int(100) // (30) 1 to 100
@@ -37,7 +54,7 @@ rand.object({
 
 Crypto
 ```js
-const { crypto: { base64, md5, sha256, AES, morse, rot } } = require("abrupt")
+const { base64, md5, sha256, AES, morse, rot } = require("abrupt/crypto")
 
 // Base64
 const base64_encoded = base64.encode("Hello World!")
@@ -78,7 +95,7 @@ rot("Hello World!", 10) // (Rovvy Gybvn!) ROT 10
 
 String
 ```js
-const { string: { reverse, comma } } = require("abrupt")
+const { reverse, comma } = require("abrupt/string")
 
 // String
 const Hello = "Hello World!"
