@@ -93,6 +93,39 @@ rot("Hello World!")// (Uryyb Jbeyq!) ROT 13
 rot("Hello World!", 10) // (Rovvy Gybvn!) ROT 10 
 ```
 
+File
+```js
+const file = require("abrupt/file")
+
+// Create
+
+file.create("Hello.txt", "Hello World!") // creates a text file containing "Hello World!"
+file.create(["Hi.txt", "Welcome.txt"], ["Hello", "World!"]) // creates two text files with content corresponding to each array
+
+file.create("Hello") // create a folder called hello
+file.create(["Hello", "World"]) // creates two folders
+// file.create(["Hello", "World"]) == file.create("Hello", "World") == file.create("Hello", ["World"])
+
+// will create folders if they are missing  
+file.create("this/is/three/folders.txt", "without this argument it would be a folder") 
+
+
+// Exists
+
+file.exists("this") // folder
+file.exists("Hello.txt") // file
+file.exists("not") // false
+file.exists(["this", "Hello.txt", "not"]) // ["folder", "file", false]
+// file.exists(["this", "Hello.txt", "not"]) == file.exists("this", "Hello.txt", "not")
+
+
+// Remove
+
+file.remove("this") // true
+file.remove(["Hello.txt", "not"]) // [true, false] 
+// file.remove(["Hello.txt", "not"]) == file.remove("Hello.txt", "not")
+```
+
 String
 ```js
 const { reverse, comma } = require("abrupt/string")
@@ -102,11 +135,4 @@ const Hello = "Hello World!"
 reverse(Hello) // !dlroW olleH
 comma(10000) // 10,000
 comma(10000,"$") // $10,000
-```
-
-Misc
-```js
-const { site } = require("abrupt")
-
-site("http://www.google.com/") // Load Site (Windows, Mac, Linux)
 ```

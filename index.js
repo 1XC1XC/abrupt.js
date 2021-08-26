@@ -1,6 +1,8 @@
 module.exports = {
-    rand: require("./rand/rand.js"),
-    crypto: require("./crypto/crypto.js"),
-    string: require("./string/string.js"),
-    site: require("./site.js")
+    rand: require("./rand"),
+    crypto: require("./crypto"),
+    string: require("./string"),
+    object: require("./object"),
+    file: require("./file"), // todo: move/rename functions 
+    util: require("./util")
 }
