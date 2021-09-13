@@ -95,6 +95,7 @@ rot("Hello World!", 10) // (Rovvy Gybvn!) ROT 10
 
 File
 ```js
+// File Library: seperating (file/directory)'s are handle in the function 
 const file = require("abrupt/file")
 
 // Create
@@ -118,6 +119,10 @@ file.exists("not") // false
 file.exists(["this", "Hello.txt", "not"]) // ["folder", "file", false]
 // file.exists(["this", "Hello.txt", "not"]) == file.exists("this", "Hello.txt", "not")
 
+// Read
+// file.read(String Name, String Encoding)
+file.read("Hello.txt") // Default Encoding: UTF8
+file.read("this") // read's (file/directory) by (string/array)
 
 // Remove
 

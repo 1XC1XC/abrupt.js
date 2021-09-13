@@ -7,9 +7,9 @@ module.exports = (...args) => combind(args, name => {
     if (!exist) {
         return false
     } else if (exist == "file") {
-        fs.promises.unlink(name)
+        fs.unlinkSync(name)
     } else if (exist == "folder") {
-        fs.promises.rmdir(name)
+        fs.rmdirSync(name)
     }
     return true
 })
