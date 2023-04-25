@@ -154,3 +154,13 @@ reverse(Hello) // !dlroW olleH
 comma(10000) // 10,000
 comma(10000,"$") // $10,000
 ```
+
+Object
+```js
+const { object } = require("abrupt/object")
+
+// Object
+object.merge({a:1}, {b:2}) // {a:1, b:2}
+object.reverse({1:"a",2:"b"}) // {a: "1", b: "2"}
+object.clean({a:null, b:undefined, c: 123}) // {c: 123}
+```
