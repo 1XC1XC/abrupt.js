@@ -1,4 +1,5 @@
 module.exports = {
-    reverse: require("./reverse.js"),
-    comma: require("./comma.js")
+    reverse: require("./reverse"),
+    comma: require("./comma"),
+    is: require("./is")
 }

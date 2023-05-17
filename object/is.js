@@ -1,0 +1,1 @@
+module.exports = x => (!Array.isArray(x)) && typeof x == "object"
