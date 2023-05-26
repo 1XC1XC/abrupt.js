@@ -4,5 +4,6 @@ module.exports = {
     string: require("./string"),
     object: require("./object"),
     file: require("./file"), // todo: move/rename functions 
-    util: require("./util")
+    util: require("./util"),
+    function: require("./function")
 }
