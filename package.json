@@ -1,13 +1,39 @@
 {
 	"name": "abrupt",
 	"main": "index.cjs",
-	"exports": {
-		".": {
-			"require": "./index.cjs",
-			"import": "./index.mjs"
+	"types": "index.d.ts",
+	"typesVersions": {
+		"*": {
+			"*": [
+				"index.d.ts"
+			]
 		}
 	},
-	"version": "1.0.3",
+	"files": [
+		"bin/index.node",
+		"index.cjs",
+		"index.mjs",
+		"index.shared.cjs",
+		"index.d.ts",
+		"index.d.mts",
+		"index.d.cts",
+		"types.d.ts",
+		"README.md"
+	],
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"require": {
+				"types": "./index.d.cts",
+				"default": "./index.cjs"
+			},
+			"import": {
+				"types": "./index.d.mts",
+				"default": "./index.mjs"
+			}
+		}
+	},
+	"version": "1.0.4",
 	"scripts": {
 		"build": "./build.sh",
 		"unit-test": "npm run build && node --test scripts/unit-test.mjs",

@@ -1,5 +1,7 @@
 "use strict"
 
+const EXPORT_KEYS = Object.freeze(["rand", "crypto", "file"])
+
 function requireArgs(name, args) {
 	if (args.length > 0) return
 	throw new TypeError(`${name} requires at least one argument`)
@@ -42,13 +44,33 @@ function wrapFileNamespace(fileNs) {
 	}
 }
 
+function missingNamespaceError(name) {
+	return new TypeError(`Native export "${name}" is missing`)
+}
+
+function getNativeNamespace(native, name) {
+	const value = native[name]
+	if (value) return value
+	throw missingNamespaceError(name)
+}
+
 function wrapNative(native) {
+	if (!native || typeof native !== "object") {
+		throw new TypeError("Native module must be an object")
+	}
+
+	const rand = getNativeNamespace(native, EXPORT_KEYS[0])
+	const crypto = getNativeNamespace(native, EXPORT_KEYS[1])
+	const file = getNativeNamespace(native, EXPORT_KEYS[2])
+
 	return {
-		...native,
-		file: wrapFileNamespace(native.file),
+		rand,
+		crypto,
+		file: wrapFileNamespace(file),
 	}
 }
 
 module.exports = {
+	EXPORT_KEYS,
 	wrapNative,
 }

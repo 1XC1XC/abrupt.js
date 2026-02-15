@@ -5,7 +5,7 @@ const native = require("./bin/index.node")
 const { wrapNative } = require("./index.shared.cjs")
 const wrapped = wrapNative(native)
 
-export const rand = wrapped.rand
-export const crypto = wrapped.crypto
-export const file = wrapped.file
+const { rand, crypto, file } = wrapped
+
+export { rand, crypto, file }
 export default wrapped
